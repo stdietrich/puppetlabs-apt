@@ -107,7 +107,7 @@ class apt(
     true: {
       file { '99progressbar':
         ensure  => present,
-        content => 'Dpkg::Progress-Fancy "1";',
+        content => template('apt/progressbar.erb'),
         path    => "${apt_conf_d}/99progressbar",
       }
     }
@@ -125,7 +125,7 @@ class apt(
     true: {
       file { '99unauth':
         ensure  => present,
-        content => "APT::Get::AllowUnauthenticated 1;\n",
+        content => template('apt/unauth.erb'),
         path    => "${apt_conf_d}/99unauth",
       }
     }
@@ -151,7 +151,7 @@ class apt(
       file { '01proxy':
         ensure  => present,
         path    => "${apt_conf_d}/01proxy",
-        content => "Acquire::http::Proxy \"http://${proxy_host}:${proxy_port}\";\n",
+        content => template('apt/proxy.erb'),
         notify  => Exec['apt_update'],
         mode    => '0644',
         owner   => root,

@@ -86,7 +86,7 @@ describe 'apt', :type => :class do
 
     it { should contain_file('99progressbar').only_with({
       'ensure'  => 'present',
-      'content' => 'Dpkg::Progress-Fancy "1";',
+      'content' => "Dpkg::Progress-Fancy \"1\";\n",
       'path'    => '/etc/apt/apt.conf.d/99progressbar',
     })}
 
