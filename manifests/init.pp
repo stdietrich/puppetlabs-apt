@@ -55,7 +55,7 @@ class apt(
   $update_timeout       = undef,
   $update_tries         = undef,
   $sources              = undef,
-  $fancy_progress       = undef
+  $fancy_progress       = undef,
 ) {
 
   if $::osfamily != 'Debian' {
