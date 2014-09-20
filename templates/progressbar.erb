@@ -1,1 +1,4 @@
+<%- if @warn_message -%>
+<%= @warn_message.gsub(/(?:^#)+/m, '//') %>
+<%- end -%>
 Dpkg::Progress-Fancy "1";

@@ -1,1 +1,4 @@
+<%- if @warn_message -%>
+<%= @warn_message.gsub(/(?:^#)+/m, '//') %>
+<%- end -%>
 APT::Get::AllowUnauthenticated 1;

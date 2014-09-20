@@ -8,6 +8,8 @@ define apt::conf (
 
   $apt_conf_d = $apt::params::apt_conf_d
 
+  $warn_message = $::apt::warn_message
+
   file { "${apt_conf_d}/${priority}${name}":
     ensure  => $ensure,
     content => template('apt/conf.erb'),

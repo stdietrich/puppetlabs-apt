@@ -20,6 +20,8 @@ define apt::pin(
 
   $preferences_d = $apt::params::preferences_d
 
+  $warn_message = $::apt::warn_message
+
   if $order != '' and !is_integer($order) {
     fail('Only integers are allowed in the apt::pin order param')
   }

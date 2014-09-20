@@ -37,7 +37,8 @@ class apt(
   $update_timeout       = undef,
   $update_tries         = undef,
   $sources              = undef,
-  $fancy_progress       = undef
+  $fancy_progress       = undef,
+  $warn                 = true,
 ) {
 
   if $::osfamily != 'Debian' {
@@ -58,6 +59,18 @@ class apt(
   if $always_apt_update == true {
     Exec <| title=='apt_update' |> {
       refreshonly => false,
+    }
+  }
+
+  case $warn {
+    true: {
+      $warn_message = $::apt::params::default_warn_message
+    }
+    false: {
+      $warn_message = undef
+    }
+    default: {
+      $warn_message = $warn
     }
   }
 

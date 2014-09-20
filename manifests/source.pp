@@ -24,6 +24,8 @@ define apt::source(
   $sources_list_d = $apt::params::sources_list_d
   $provider       = $apt::params::provider
 
+  $warn_message = $::apt::warn_message
+
   if $release == 'UNDEF' {
     if $::lsbdistcodename == undef {
       fail('lsbdistcodename fact not available: release parameter required')

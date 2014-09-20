@@ -48,6 +48,8 @@ class apt::unattended_upgrades (
   )
   validate_array($origins)
 
+  $warn_message = $::apt::warn_message
+
   package { 'unattended-upgrades':
     ensure => present,
   }

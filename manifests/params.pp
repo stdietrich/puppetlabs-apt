@@ -1,9 +1,11 @@
 class apt::params {
-  $root           = '/etc/apt'
-  $provider       = '/usr/bin/apt-get'
-  $sources_list_d = "${root}/sources.list.d"
-  $apt_conf_d     = "${root}/apt.conf.d"
-  $preferences_d  = "${root}/preferences.d"
+  $root                 = '/etc/apt'
+  $provider             = '/usr/bin/apt-get'
+  $sources_list_d       = "${root}/sources.list.d"
+  $apt_conf_d           = "${root}/apt.conf.d"
+  $preferences_d        = "${root}/preferences.d"
+  $default_warn_message = '# This file is managed by Puppet. DO NOT EDIT.'
+  #$default_warn_message = "# Managed by Puppet (apt)\n# Do NOT edit, changes will be overwritten!"
 
   case $::lsbdistid {
     'ubuntu', 'debian': {

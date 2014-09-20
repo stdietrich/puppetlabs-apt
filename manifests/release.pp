@@ -8,6 +8,8 @@ class apt::release (
 
   $root = $apt::params::root
 
+  $warn_message = $::apt::warn_message
+
   file { "${root}/apt.conf.d/01release":
     owner   => root,
     group   => root,
