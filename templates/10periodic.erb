@@ -1,5 +1,5 @@
 <%- if @warn_message -%>
-<%= @warn_message.gsub(/(?:^#)+/m, '//') %>
+<%= @warn_message %>
 <%- end -%>
 APT::Periodic::Enable "<%= @enable %>";
 APT::Periodic::BackUpArchiveInterval "<%= @backup_interval %>";

@@ -1,4 +1,4 @@
 <%- if @warn_message -%>
-<%= @warn_message.gsub(/(?:^#)+/m, '//') %>
+<%= @warn_message %>
 <%- end -%>
 Acquire::http::Proxy "http://<%= @proxy_host %>:<%= @proxy_port %>";
