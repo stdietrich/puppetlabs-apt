@@ -1,1 +1,13 @@
-# This file is managed by Puppet. DO NOT EDIT.
+<%-
+  default_message = "# This file is managed by Puppet. DO NOT EDIT."
+  warn = scope.function_hiera(["apt::warn", default_message])
+
+  if warn == true
+    message = default_message
+  elsif warn == false
+    message = ""
+  else
+    message = warn
+  end
+-%>
+<%= message %>
